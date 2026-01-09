@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AMI_ID="ami-09c813fb71547fc4f"
-SG_ID="sg-019ecaf22c9101836"
+SG_ID="sg-0375737b0b3824016"
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 ZONE_ID="Z02643283SYC8C4HUQCUK"
 DOMAIN_NAME="vinnimakeovers.online"
