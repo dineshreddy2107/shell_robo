@@ -1,13 +1,13 @@
 #!/bin/bash
 
-AMI_ID="ami-09c813fb71547fc4f"
-SG_ID="sg-019ecaf22c9101836" # replace with your SG ID
+AMI_ID="ami-02200d79f3f480ecf5"
+SG_ID="sg-09097fbfdd09b2775" # replace with your SG ID
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 ZONE_ID="Z02643283SYC8C4HUQCUK" # replace with your ZONE ID
 DOMAIN_NAME="vinnimakeovers.online" # replace with your domain
 
-for instance in ${INSTANCES[@]}
-#for instance in $@
+#for instance in ${INSTANCES[@]}
+for instance in $@
 do
     INSTANCE_ID=$(aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t3.micro --security-group-ids sg-019ecaf22c9101836 --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=$instance}]" --query "Instances[0].InstanceId" --output text)
     if [ $instance != "frontend" ]
